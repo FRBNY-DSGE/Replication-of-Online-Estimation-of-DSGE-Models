@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\begin{document}
+
+\subsubsection{Specification}
+ \textbf{Model/SMC Specification}:\\
+ \vspace{-.6cm}
+ \begin{itemize}
+ \item \textbf{Model}: An Schorfheide
+ \item \textbf{Pre-sample Date Range}:1959-Q3 through 1959-Q4
+ \item \textbf{Date Range}: 1960-Q1 through 2018-Q4
+ \item \textbf{Number of Particles}:2000
+ \item \textbf{$N_Phi$}: 300
+ \item \textbf{$lambda$}:2.1
+ \item \textbf{$N_{SMC\_blocks}$}: 1
+ \item \textbf{$N_{MH\_steps}$}: 1
+ \item \textbf{Mixture Proportion}: 1
+ \item \textbf{Resampling Threshold}: 0.5
+ \item \textbf{Target Acceptance Rate}: 0.25
+ \item \textbf{Initial Step-Size} (proposal covariance scaling factor): 0.5
+ \end{itemize}
+ \hspace{-.65cm} \textbf{Schedule Specification}:\\
+ \vspace{-.6cm}
+ \begin{itemize}
+ \item \textbf{Fixed Schedule}: With the specified $N_\Phi$ and $\lambda$.
+ \item \textbf{Adaptive Schedule}: With $\alpha = 0.97$.
+ \item \textbf{Adaptive Schedule}: With $\alpha = 0.98$.
+ \end{itemize}
+ \hspace{-.65cm}
+ \textbf{Number of estimations at each schedule specification}: 20\\
+
+\end{document}

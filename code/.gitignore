@@ -1,0 +1,9 @@
+# Data
+save/
+
+# Temporarily ignoring specfiles
+specfiles/
+
+# Document output
+documentation/
+results/
