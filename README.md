@@ -10,10 +10,11 @@ Make sure you're using the latest versions of all our packages!
 - SMC.jl 0.1.4
 - StateSpaceRoutines 0.3.1
 - ModelConstructors 0.1.8
+- To add packages, in the Julia REPL, type `]add PACKAGENAME`
 
 Other packages you need:
 - Dates, Printf, Test, HDF5, JLD2, FileIO, DataFrames, CSV, Query, ClusterManagers, Distributed, OrderedCollections, Statistics, StatsBase, SparseArrays, LinearAlgebra, KernelDensity, Plots, Measures
-- To add these, in the Julia REPL, type `]add PACKAGENAME`
+- To add packages, in the Julia REPL, type `]add PACKAGENAME`
 
 ## SECTION 4 COMPUTATION
 WARNING: Running all 400 simulations of AS and 200 simulations of SW takes multiple days using >12,000 cores and produces 1.1 TB of output. 
