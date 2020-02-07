@@ -9,7 +9,7 @@ include("RealtimeData/src/RealtimeData.jl")
 const REALTIME_FORECAST_HORIZONS = 16
 
 using Dates, Printf, Test
-using DSGE, DSGEModels
+using DSGE #, DSGEModels
 using HDF5, JLD2, FileIO
 using DataFrames, CSV, Query
 using ClusterManagers

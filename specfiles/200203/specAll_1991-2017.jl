@@ -1,5 +1,4 @@
 using DSGE
-using DSGEModels
 using ClusterManagers, Distributed
 addprocs(collect(eachline("nodefile")); tunnel = true, topology = :master_worker)
 @everywhere using DSGE, DSGEModels

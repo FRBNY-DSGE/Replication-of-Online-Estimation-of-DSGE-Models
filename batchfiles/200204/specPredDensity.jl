@@ -1,5 +1,4 @@
 using DSGE
-using DSGEModels
 using ClusterManagers, Distributed
 
 pr_arg = ARGS[2]
