@@ -13,7 +13,7 @@ elseif p_np == "nonpoint"
 end
 
 addprocs(collect(eachline("nodefile")); tunnel = true, topology = :all_to_all)
-@everywhere using DSGE, DSGEModels
+@everywhere using DSGE
 
 # What do you want to do?
 run_smc = true
