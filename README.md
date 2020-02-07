@@ -6,7 +6,7 @@ Note: To re-run all exercises in the paper could take many weeks with thousands 
 2. Some users may want to focus on particular sections rather than "pressing a button and having the whole shebang run."
 
 Make sure you're using the latest versions of all our packages!
-- DSGE.jl 1.1.0
+- DSGE.jl 1.1.1
 - SMC.jl 0.1.4
 - StateSpaceRoutines 0.3.1
 - ModelConstructors 0.1.8
