@@ -20,20 +20,25 @@ To reduce the number of simulations:
 To re-run the simulations for sections 4.1 and 4.2:
 (this code has been run and tested using a slurm scheduler and Julia 1.1.0 on BigTex)
 - Go to batchfiles/200202/AnSchorfheide
+- Change line 10 of specAnSchorf_N_MH=1_3_5.jl to the path where you git cloned the repo. E.g.: if the directory you git cloned is ~/user/work/SMC_Paper_Replication/, you should set this line to ~/user/work/SMC_Paper_Replication/
 - Run (sbatch if uisng slurm scheduler) master_script_as.sh. This launches the 400 estimations of AS for each alpha x N_MH combination.
-- Go to batchfiles/200202/SmetsWouters. This launches the 200 estimations of SW for each alpha x N_MH combination.
-- Run (sbatch if uisng slurm scheduler) master_script_sw.sh
+
+- Go to batchfiles/200202/SmetsWouters. 
+- chnage line 10 of specsmetsWout_N_MH=1_3_5.jl to the path where you git cloned the repo. E.g.: if the directory you git cloned is ~/user/work/SMC_Paper_Replication/, you should set this line to ~/user/work/SMC_Paper_Replication/
+- Run (sbatch if uisng slurm scheduler) master_script_sw.sh. This launches the 200 estimations of SW for each alpha x N_MH combination.
 - The output is saved in save/200202. This output is read in by estimation_section.jl
 
 To re-run the simulations for section 4.3:
 (this code has been run and tested using a SGE scheduler and Julia 1.1.1 on the FRBNY RAN)
 - Go to specfiles/200201
+- Change line 19 of specAnSchorfheideExercise.jl to the path where you git cloned the repo (see example in section above)
 - Run specAnSchorfheideExercise.jl with at least 100 GB memory on the head worker. The julia script adds 48 workers (with 3GB memory each). You'll need to modify the lines which add workers to your local cluster.
 - This saves the estimation simulations in save/200201 and also makes the plots based on these simulations (also saved in save/200201)
 
 ## SECTION 5 COMPUTATION
 To re-run the realtime estimations of SW, SWFF, SWpi used in section 5:
 (this code has been run and tested using a slurm scheduler and Julia 1.1.0 on BigTex)
+- Change line 6 of specfiles/200203/specAll_1991-2017.jl to the directory where you git cloned the repo
 - Go to batchfiles/200203
 - Run (sbatch if uisng slurm scheduler) master.sh
 - They will save in save/200203
@@ -41,6 +46,7 @@ To re-run the realtime estimations of SW, SWFF, SWpi used in section 5:
 To re-run predictive densities in section 5:
 (this code has been run and tested using a slurm scheduler and Julia 1.1.0 on BigTex)
 - Go to batchfiles/200117/
+- Change line 21 of specPredDensity.jl to the path where you git cloned the repo to (see example in first section)
 - Run (sbatch if using slurm scheduler) master_script.sh
 - Running this launches separate parallel jobs for different combinations of predictive densities (prior, conditional data, etc.)
 - The predictive densities' raw output save to save/200117. This data is loaded in by forecasting_section.jl to produce the predictive density plots.
