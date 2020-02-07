@@ -1,5 +1,4 @@
 using DSGE
-using DSGEModels
 using Distributed
 numprocs = parse(Int, ARGS[1])
 numnodes = ceil(Int, numprocs/16)
@@ -8,8 +7,8 @@ numnodes = ceil(Int, numprocs/16)
 addprocs(collect(eachline("nodefile")); tunnel=true, topology=:master_worker)
 @everywhere using DSGE
 
-@everywhere SMC_CODE_DIR = "/scratch/exm190011/SMCProject_submission/code/src/"
-@everywhere SMC_DIR = "/scratch/exm190011/SMCProject_submission"
+@everywhere SMC_DIR = ### Insert path to wherever you git clonded repo here
+@everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")
 
 @everywhere using Distributions, DataFrames

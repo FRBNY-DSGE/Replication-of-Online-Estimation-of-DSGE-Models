@@ -20,7 +20,7 @@ copy_yearly_time_tempering  = true
 using OrderedCollections, Distributed
 
 # Load the SMCProject repo
-@everywhere SMC_DIR = ### INSERT PATH TO WHEREVER YOU GIT CLONED THE REPO
+@everywhere SMC_DIR = pwd()*"/../../"
 @everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
 
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")

@@ -13,12 +13,12 @@ elseif p_np == "nonpoint"
 end
 
 addprocs(collect(eachline("nodefile")); tunnel = true, topology = :all_to_all)
-@everywhere using DSGE, DSGEModels
+@everywhere using DSGE #, DSGEModels
 
 # What do you want to do?
 run_smc = true
 
-@everywhere SMC_DIR = "/scratch/exm190011/SMCProject_submission"
+@everywhere SMC_DIR = ### INSERT PATH WHERE YOU GIT CLONED REPO HERE
 @everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")
 @everywhere using Distributions, DataFrames

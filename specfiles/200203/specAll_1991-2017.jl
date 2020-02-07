@@ -1,7 +1,7 @@
 using DSGE
 using ClusterManagers, Distributed
 addprocs(collect(eachline("nodefile")); tunnel = true, topology = :master_worker)
-@everywhere using DSGE, DSGEModels
+@everywhere using DSGE
 
 @everywhere SMC_DIR = ### INSERT PATH TO WHEREVER YOU GIT CLONED REPO
 @everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src"

@@ -12,7 +12,7 @@ using OrderedCollections
 using Plots, Measures
 gr()
 
-@everywhere SMC_DIR = ### INSERT PATH TO WHEREVER YOU GIT CLONED REPO
+@everywhere SMC_DIR = pwd()*"/../../"
 @everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
 @everywhere include("$SMC_CODE_DIR/SMCProject.jl")
 
