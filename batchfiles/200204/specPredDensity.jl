@@ -18,8 +18,8 @@ addprocs(collect(eachline("nodefile")); tunnel = true, topology = :all_to_all)
 # What do you want to do?
 run_smc = true
 
-@everywhere SMC_DIR = "/scratch/exm190011/SMCProject/code/SMCProject_submission"
-@everywhere SMC_CODE_DIR = "/scratch/exm190011/SMCProject/code/src/"
+@everywhere SMC_DIR = ## INSERT PATH TO WHERE YOU GIT CLONED THIS REPO
+@everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")
 
 @everywhere using Distributions, DataFrames
