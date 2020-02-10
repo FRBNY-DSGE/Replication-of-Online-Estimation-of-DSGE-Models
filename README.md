@@ -50,7 +50,7 @@ To re-run the realtime estimations of SW, SWFF, SWpi used in section 5:
 
 To re-run predictive densities in section 5:
 (this code has been run and tested using a slurm scheduler and Julia 1.1.0 on BigTex)
-- Go to batchfiles/200117/
+- Go to batchfiles/200204/
 - Change line 21 of specPredDensity.jl to the path where you git cloned the repo to (see example in first section)
 - Run (sbatch if using slurm scheduler) master_script.sh
 - Running this launches separate parallel jobs for different combinations of predictive densities (prior, conditional data, etc.)
