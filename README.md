@@ -12,7 +12,8 @@ Make sure you're using the latest versions of all our packages!
 - ModelConstructors 0.1.8
 - To add packages, in the Julia REPL, type `]add PACKAGENAME`
 
-To add all packages you need, in the Julia REPL, type:
+To add all packages you need, enter the following into the Julia REPL:
+
 `]add DSGE SMC StateSpaceRoutines ModelConstructors BenchmarkTools CSV Calculus ClusterManagers ColorTypes DataFrames DataStructures Dates DelimitedFiles DiffEqDiffTools DifferentialEquations Distributed Distributions FFTW FileIO ForwardDiff FredData GR HDF5 InteractiveUtils JLD2 KernelDensity LinearAlgebra MAT MbedTLS Measures Missings NLSolversBase Nullables Optim OrderedCollections PDMats PackageCompiler Plots Printf Query Random RecipesBase Roots SharedArrays SparseArrays SpecialFunctions Statistics StatsBase StatsFuns StatsPlots Test TimeZones Tracker`
 
 
