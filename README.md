@@ -12,9 +12,9 @@ Make sure you're using the latest versions of all our packages!
 - ModelConstructors 0.1.8
 - To add packages, in the Julia REPL, type `]add PACKAGENAME`
 
-Other packages you need:
-- Dates, Printf, Test, HDF5, JLD2, FileIO, DataFrames, CSV, Query, ClusterManagers, Distributed, OrderedCollections, Statistics, StatsBase, SparseArrays, LinearAlgebra, KernelDensity, Plots, Measures, DiffEqDiffTools, Optim, SpecialFunctions, ForwardDiff, NLSolversBase, DataStructures
-- To add packages, in the Julia REPL, type `]add PACKAGENAME`
+To add all packages you need, in the Julia REPL, type:
+`]add DSGE SMC StateSpaceRoutines ModelConstructors BenchmarkTools CSV Calculus ClusterManagers ColorTypes DataFrames DataStructures Dates DelimitedFiles DiffEqDiffTools DifferentialEquations Distributed Distributions FFTW FileIO ForwardDiff FredData GR HDF5 InteractiveUtils JLD2 KernelDensity LinearAlgebra MAT MbedTLS Measures Missings NLSolversBase Nullables Optim OrderedCollections PDMats PackageCompiler Plots Printf Query Random RecipesBase Roots SharedArrays SparseArrays SpecialFunctions Statistics StatsBase StatsFuns StatsPlots Test TimeZones Tracker`
+
 
 ## SECTION 4 COMPUTATION
 WARNING: Running all 400 simulations of AS and 200 simulations of SW takes multiple days using >12,000 cores and produces 1.1 TB of output. 
