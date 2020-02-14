@@ -30,7 +30,7 @@ To re-run the simulations for sections 4.1 and 4.2:
 - Run (`sbatch` if uisng slurm scheduler) `master_script_as.sh`. This launches the 400 estimations of AS for each alpha x N_MH combination.
 
 - Go to `batchfiles/200202/SmetsWouters`. 
-- Change line 10 of `specsmetsWout_N_MH=1_3_5.jl` to the path where you git cloned the repo. (e.g.: if the directory you git cloned is `~/user/work/SMC_Paper_Replication/`, you should set this line to `~/user/work/SMC_Paper_Replication/`)
+- Change line 10 of `specsmetsWout_N_MH=1_3_5.jl` to the path where you git cloned the repo. (e.g. if the directory you git cloned is `~/user/work/SMC_Paper_Replication/`, you should set this line to `~/user/work/SMC_Paper_Replication/`)
 - Run (`sbatch` if uisng slurm scheduler) `master_script_sw.sh`. This launches the 200 estimations of SW for each alpha x N_MH combination.
 - The output is saved in `save/200202`. This output is read in by `estimation_section.jl`
 
