@@ -1,7 +1,7 @@
 # Replication Code: Online Estimation of DSGE Models
 The code in this repository replicates ["Online Estimation of DSGE Models"](https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr893.pdf) by Michael Cai, Marco Del Negro, Edward Herbst, Ethan Matlin, Reca Sarfati, and Frank Schorfheide. In general, most of the computation code is structured to run in batch mode in parallel on a large cluster, while the plotting code is structured to be run using a single core.
 
-This repository is designed primarily to replicate the figures and tables in the "Online Estimation" paper. **If you are interested in using SMC for your own models, check out our independent software package [SMC.jl](https://github.com/FRBNY-DSGE/SMC.jl)**
+This repository is designed primarily to replicate the figures and tables in the "Online Estimation" paper. **If you are interested in using SMC for your own models, check out our independent software package [SMC.jl](https://github.com/FRBNY-DSGE/SMC.jl)**.
 
 Note: To re-run all exercises in the paper could take many weeks with thousands of coures. Hence, we've modularized the replication codes for ease of use because:
 1. Many clusters impose time limits on jobs--hence it may be necessary for users to run the replication chunk by chunk
