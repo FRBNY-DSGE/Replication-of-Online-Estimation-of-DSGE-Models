@@ -1,6 +1,8 @@
 # SMC Paper Replication
 The code in this repository replicates "Online Estimation of DSGE Models" by Michael Cai, Marco Del Negro, Edward Herbst, Ethan Matlin, Reca Sarfati, and Frank Schorfheide. In general, most of the computation code is structured to run in batch mode in parallel on a large cluster, while the plotting code is structured to be run using a single core.
 
+This repository is designed primarily to replicate the figures and tables in the "Online Estimation" paper. **If you are interested in using SMC for your own models, check out our independent software package [SMC.jl](https://github.com/FRBNY-DSGE/SMC.jl)**
+
 Note: To re-run all exercises in the paper could take many weeks with thousands of coures. Hence, we've modularized the replication codes for ease of use because:
 1. Many clusters impose time limits on jobs--hence it may be necessary for users to run the replication chunk by chunk
 2. Some users may want to focus on particular sections rather than "pressing a button and having the whole shebang run."
@@ -67,3 +69,11 @@ To replicate SW `figures/tables` in section 4:
 
 To replicate `figures/tables` in section 5:
 - Run `forecasting_section.jl`
+
+
+## Disclaimer
+
+Copyright Federal Reserve Bank of New York. You may reproduce, use, modify, make derivative works of, and distribute and this code in whole or in part so long as you keep this notice in the documentation associated with any distributed works. Neither the name of the Federal Reserve Bank of New York (FRBNY) nor the names of any of the authors may be used to endorse or promote works derived from this code without prior written permission. Portions of the code attributed to third parties are subject to applicable third party licenses and rights. By your use of this code you accept this license and any applicable third party license.
+
+THIS CODE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT ANY WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, EXCEPT TO THE EXTENT THAT THESE DISCLAIMERS ARE HELD TO BE LEGALLY INVALID. FRBNY IS NOT, UNDER ANY CIRCUMSTANCES, LIABLE TO YOU FOR DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH USE OF OR INABILITY TO USE THE CODE, INCLUDING, BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, SPECIAL OR EXEMPLARY DAMAGES, WHETHER BASED ON BREACH OF CONTRACT, BREACH OF WARRANTY, TORT OR OTHER LEGAL OR EQUITABLE THEORY, EVEN IF FRBNY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR LOSS AND REGARDLESS OF WHETHER SUCH DAMAGES OR LOSS IS FORESEEABLE.
+
