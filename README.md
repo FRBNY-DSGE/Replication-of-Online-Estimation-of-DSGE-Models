@@ -1,3 +1,5 @@
+# The link to this Github package is https://github.com/FRBNY-DSGE/Replication-of-Online-Estimation-of-DSGE-Models.
+
 # Replication Code: Online Estimation of DSGE Models
 The code in this repository replicates ["Online Estimation of DSGE Models"](https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr893.pdf) by Michael Cai, Marco Del Negro, Edward Herbst, Ethan Matlin, Reca Sarfati, and Frank Schorfheide. In general, most of the computation code is structured to run in batch mode in parallel on a large cluster, while the plotting code is structured to be run using a single core.
 
