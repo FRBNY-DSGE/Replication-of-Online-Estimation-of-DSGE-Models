@@ -70,7 +70,7 @@ function plot_tempering_schedules(m::AbstractModel, run_date::String,
                                   plotroot::String = "", file_name::String = "tempering_schedules",
                                   title::String = "Tempering Schedules",
                                   xlabel::String = "Stage n",
-                                  ylabel::String = "Tempering Parameter \\phi_n",
+                                  ylabel::String = "Tempering Parameter  \\phi_n",
                                   linecolor::Symbol = :black) where S<:Union{AbstractRange, Vector}
     cloud_db = load_clouds(m, T, exercise_specifications, print_strings,
                            outputs = [:clouds, :alphas],
@@ -235,6 +235,7 @@ function plot_time_std_scatter_nongadfly(dfs::Dict{Symbol, DataFrame};
                                font_size = 15,
                                tick_size = 15,
                                colors = [:blue, :orange],
+                               shapes = [:circle, :square],
                                n_mh = 1)
 
 
@@ -286,7 +287,7 @@ function plot_time_std_scatter_nongadfly(dfs::Dict{Symbol, DataFrame};
                   xlims = xlims, ylims = ylims,
               xtickfontsize=tick_size, ytickfontsize=tick_size,
               xguidefontsize=tick_size, yguidefontsize=tick_size)
-        scatter!(p1, df_plot[to_plot, :mean_min], df_plot[to_plot, :std_logmdd], color = colors[i], legend = false)
+        scatter!(p1, df_plot[to_plot, :mean_min], df_plot[to_plot, :std_logmdd], color = colors[i], shape = shapes[i], legend = false)
     end
 
 ####
