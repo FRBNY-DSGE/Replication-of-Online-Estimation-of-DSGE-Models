@@ -88,7 +88,7 @@ function plot_tempering_schedules(m::AbstractModel, run_date::String,
     # this will have to be changed
     clouds = Dict{Float64, Vector{ParticleCloud}}()
     for α in unique(cloud_db[!,:alphas])
-        clouds[α] = cloud_db[map(x -> x == α, cloud_db[!,:alphas]), :clouds]
+        clouds[α] = map(y -> ParticleCloud(y, map(x->x.key, m.parameters)), cloud_db[map(x -> x == α, cloud_db[!,:alphas]), :clouds])
     end
 
     plot_tempering_schedules(clouds, plotroot = plotroot, file_name = file_name,
