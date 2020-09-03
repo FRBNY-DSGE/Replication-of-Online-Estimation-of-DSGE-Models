@@ -47,11 +47,11 @@ if configure_master_reference
     settings[:date_samples] = [(quartertodate("2011-Q1"), quartertodate("2016-Q1")),
                                (quartertodate("1991-Q4"), quartertodate("2016-Q4"))]
     # Average
-    settings[:standard_load_date] = "200117" #"191218" #"190704" #"190620"
-    settings[:diffuse_load_date]  = "200117" #"191218" #"190704" #"190620"
+    settings[:standard_load_date] = "200202" #"191218" #"190704" #"190620"
+    settings[:diffuse_load_date]  = "200202" #"191218" #"190704" #"190620"
     # Point
-    settings[:standard_point_load_date] = "200117" #"191218" #"190704" #"190619"
-    settings[:diffuse_point_load_date]  = "200117" #"191218" #"190704" #"190619"
+    settings[:standard_point_load_date] = "200202" #"191218" #"190704" #"190619"
+    settings[:diffuse_point_load_date]  = "200202" #"191218" #"190704" #"190619"
     # Where the Average MH Predictive Densities are saved
     settings[:mh_load_date] = "190621"
 
