@@ -8,6 +8,7 @@ generate_predictive_densities_with_standard_prior      = true
 generate_predictive_density_comparisons_across_priors  = true
 generate_predictive_densities_across_time              = true
 
+using Distributed
 using OrderedCollections
 using Plots, Measures
 gr()
