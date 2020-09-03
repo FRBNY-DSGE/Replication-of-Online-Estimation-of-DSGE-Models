@@ -43,7 +43,7 @@ if configure_master_reference
     OrderedDict(
          :model_name      => :AnSchorfheide,
          :iteration_range => 1:400,
-         :run_date        => "191113", #old (what we used for original submission results): "190709",
+         :run_date        => "200202", #old (what we used for original submission results): "190709",
          :est_specs => vcat(1:7, 9:24),
         :mh1_est_specs   => [1,2,5,15,16], # These est_specs correspond to 0.0, 0.98, 0.97, 0.95, 0.90, N_MH = 1 respectively
         :mh3_est_specs   => [3,6,9,11,13],
@@ -59,7 +59,7 @@ if configure_master_reference
     OrderedDict(
          :model_name      => :SmetsWouters,
          :iteration_range => 1:200,
-         :run_date        => "191113", #"190709",
+         :run_date        => "200202", #"190709",
          :est_specs       => vcat(1:4, 6:16), #omit 5 because that uses 6 parameter blocks (for diffuse prior)
          :mh1_est_specs   => [1,2,6,7, 8],
          :mh3_est_specs   => [15,3,9,11,13],
@@ -77,7 +77,7 @@ if configure_master_reference
 
     # Load in models to pull settings
     as[:model]      = prepare_model(as[:model_name], 2017, 1, as[:run_date], subspec = "ss0", est_spec = 1, data_spec = 1)
-    sw[:model]      = prepare_model(sw[:model_name], 2017, 1, sw[:run_date], subspec = "ss1", est_spec = 1, data_spec = 1)
+    sw[:model]      = prepare_model(sw[:model_name], 2017, 1, sw[:run_date], subspec = "ss0", est_spec = 1, data_spec = 1)
 
     as_exercise_specs = OrderedDict(:est_specs => as[:est_specs],
                                     :smc_iteration => as[:iteration_range])
