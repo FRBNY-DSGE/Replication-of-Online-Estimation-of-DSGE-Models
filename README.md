@@ -25,6 +25,14 @@ To add all packages you need, enter the following into the Julia REPL, in the in
 6. ]add BenchmarkTools CSV Calculus ClusterManagers ColorTypes DataFrames DataStructures Dates DelimitedFiles DiffEqDiffTools DifferentialEquations Distributed Distributions FFTW FileIO ForwardDiff FredData GR HDF5 InteractiveUtils JLD2 KernelDensity LinearAlgebra MAT MbedTLS Measures Missings NLSolversBase Nullables Optim OrderedCollections PDMats PackageCompiler Plots Printf Query Random RecipesBase Roots SharedArrays SparseArrays SpecialFunctions Statistics StatsBase StatsFuns StatsPlots Test TimeZones Tracker
 7. At this point, you will also need to also follow the instructions [here](https://github.com/micahjsmith/FredData.jl) for setting up a FRED API key. 
 
+Before running any of the code below, you need to load and precompile all the packages (otherwise, if you're launching multiple jobs at once--as our batch scripts do--the various jobs will all precompile over each other and screw everything up). The easiest way to do so is to start running one of the main Julia scripts within a single instance, as follows:
+- Navigate to batchfiles/200202/AnSchorfheide/
+- Open a Julia session
+- In the Julia session, run `include("specAnSchorf_N_MH=1_3_5.jl")`
+- This will load and precompile all the packages that are used but will eventually throw an error ("Bounds Error:attempt to access 0-element Array" since it's not getting the arguments from the batch job submission). That's ok; the only point of running this is to precompile all the packages before running all the batch job submissions.
+- Now you should be ready to go with submitting the batch scripts as discussed below.
+- If it still doesn't work, you can manually precompile all the packages by copy and pasting in the list of packages you added above with `using [insert list of packages here]`. That should guarantee all the packages are precompiled and ready to go.
+
 ## SECTION 4 COMPUTATION
 WARNING: Running all 400 simulations of AS and 200 simulations of SW takes multiple days using >12,000 cores and produces 1.1 TB of output. 
 To reduce the number of simulations: 
@@ -42,12 +50,21 @@ To re-run the simulations for sections 4.1 and 4.2:
 - Run (`sbatch` if uisng slurm scheduler) `master_script_sw.sh`. This launches the 200 estimations of SW for each alpha x N_MH combination.
 - The output is saved in `save/200202`. This output is read in by `estimation_section.jl`
 
+Sometimes, particular jobs will segfault (by jobs, I mean iteration number by est_spec pairs). This is fine and likely just a cluster issue. You are using enormous amounts of resources after all! To find out which job failed, you can run estimation_section.jl. If it can't find a file, that's because that job (iteration number by est_spec pair_ failed. Say the (est_spec=3, iteration=206) job failed. All you need to do in this case is:
+1. go to batchfiles/200202/AnSchorfheide/est_spec_3/206, open up as_estimation.sh
+2. delete lines 20 and 21 (since you're not passing arguments from another batch script if you just re-run this particular one)
+3. change line 22 to julia ../../specAnSchorf_N_MH=1_3_5.jl 48 3 206 (3 is est_spec and 206 is iteration number as referenced in the comment)
+4. in that folder, sbatch as_estimation.sh
+5. This is fine to do because the only thing the higher level batch script does is just submits all the individual batch scripts which can be run and re-run individually
+6. For every job that failed, do the same thing but with different est_spec and iteration pairs corresponding to the job which failed
+
 To re-run the simulations for section 4.3:
 (this code has been run and tested using a SGE scheduler and Julia 1.1.1 on the FRBNY RAN)
 - Go to `specfiles/200201`
 - Change line 19 of `specAnSchorfheideExercise.jl` to the path where you git cloned the repo (see example in section above)
 - Run `specAnSchorfheideExercise.jl` with at least 100 GB memory on the head worker. The Julia script adds 48 workers (with 3GB memory each). You'll need to modify the lines which add workers to your local cluster.
 - This saves the estimation simulations in `save/200201` and also makes the plots based on these simulations (also saved in `save/200201`)
+- If you get an error, that's fine (you probably just ran out of memory for your cluster job). All you need to do is restart running the script from the last one it failed at minus 1 (minus 1 in case any in the last were possibly corrupted due to the error) i.e. change line 91 1 i.e. change line 91 to X-1:N_sim. where X is is the iteration the job failed at. This is fine to do because all of the N_sim iterations are totally independent of each other.
 
 ## SECTION 5 COMPUTATION
 To re-run the realtime estimations of SW, SWFF, SWpi used in section 5:
@@ -69,9 +86,11 @@ To re-run predictive densities in section 5:
 (this code has been run and tested using Julia 1.1.1 on the FRBNY RAN)
 To replicate AS `figures/tables` in section 4:
 - Run `estimation_section.jl` with model = `:AS` (line 4)
+- If the script can't find a file, that means that job failed (see section beginning with "Sometimes, particular jobs will segfault" above)
 
 To replicate SW `figures/tables` in section 4:
-- Run `estimation_section.jl` with model = `:SW` (line 4)
+- Run `estimation_section.jl` with model = `:SW` (line 4)- If the script can't find a file, that means that job failed (see section beginning with "Sometimes, particular jobs will segfault" above)
+
 
 To replicate `figures/tables` in section 5:
 - Run `forecasting_section.jl`
