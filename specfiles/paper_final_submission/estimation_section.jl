@@ -390,6 +390,7 @@ if write_multimodal_section
     vint = "190629" #"190717" #"190629"
     # SW
     cloud = load("$SMC_DIR/save/$(vint)/output_data/smets_wouters/ss1/estimate/raw/smc_cloud_est=$(est_spec)_vint=920110.jld2", "cloud") #load("$SMC_DIR/save/190709/output_data/smets_wouters/ss1/estimate/raw/smc_cloud_est=$(est_spec)_iter=1_vint=070710.jld2", "cloud")
+    cloud = ParticleCloud(cloud, map(x -> x.key, sw_model.parameters))                                                              
     savepath = "$figures_path/estimation/standard_vs_diffuse/sw/ss1"
     plot_multimode_nongadfly(sw_model, cloud, :ι_p, :ρ_λ_f, savepath, "920110",
                    color_scale_limits = (0, 9), xlims = (-0.1, 1.2), ylims = (-0.1, 1.2))
