@@ -16,10 +16,14 @@ Make sure you're using the latest versions of all our packages!
 - `ModelConstructors.jl` v0.1.8
 - To add packages, in the Julia REPL, type `]add PACKAGENAME`
 
-To add all packages you need, enter the following into the Julia REPL:
-
-`]add DSGE SMC StateSpaceRoutines ModelConstructors BenchmarkTools CSV Calculus ClusterManagers ColorTypes DataFrames DataStructures Dates DelimitedFiles DiffEqDiffTools DifferentialEquations Distributed Distributions FFTW FileIO ForwardDiff FredData GR HDF5 InteractiveUtils JLD2 KernelDensity LinearAlgebra MAT MbedTLS Measures Missings NLSolversBase Nullables Optim OrderedCollections PDMats PackageCompiler Plots Printf Query Random RecipesBase Roots SharedArrays SparseArrays SpecialFunctions Statistics StatsBase StatsFuns StatsPlots Test TimeZones Tracker`
-
+To add all packages you need, enter the following into the Julia REPL, in the indicated order:
+1. ]add DSGE@1.1.1
+2. ]add SMC@0.1.4
+3. ]add StateSpaceRoutines@0.3.1
+4. ]add ModelConstructors@0.1.8
+5. ]add CSV@0.5.23
+6. ]add BenchmarkTools CSV Calculus ClusterManagers ColorTypes DataFrames DataStructures Dates DelimitedFiles DiffEqDiffTools DifferentialEquations Distributed Distributions FFTW FileIO ForwardDiff FredData GR HDF5 InteractiveUtils JLD2 KernelDensity LinearAlgebra MAT MbedTLS Measures Missings NLSolversBase Nullables Optim OrderedCollections PDMats PackageCompiler Plots Printf Query Random RecipesBase Roots SharedArrays SparseArrays SpecialFunctions Statistics StatsBase StatsFuns StatsPlots Test TimeZones Tracker
+7. At this point, you will also need to also follow the instructions [here](https://github.com/micahjsmith/FredData.jl) for setting up a FRED API key. 
 
 ## SECTION 4 COMPUTATION
 WARNING: Running all 400 simulations of AS and 200 simulations of SW takes multiple days using >12,000 cores and produces 1.1 TB of output. 
