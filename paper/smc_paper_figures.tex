@@ -429,4 +429,125 @@ m January 1992 to January 2017 only are included in these calculations. The fore
     \end{minipage}
 \end{figure}
 
+This section contains additional details relating to the results reported in the main paper. In Section~\ref{appsubsec:mh35} we show summary tables for the performance of the SMC algorith on the AS and SW models for $N_\text{MH}=3$ and $N_\text{MH}=5$. In Section~\ref{appsubsec:predictive_densities_over_time} we show the evolution of log predictive scores over time. 
+
+\subsection{Summary Statistics for $N_\text{MH}=3$ and $N_\text{MH}=5$}
+
+\label{appsubsec:mh35}
+\begin{table}[H]
+	\caption{AS Model: 3 MH Steps Per Mutation}
+	\label{appsubsec:as.smcsummary}
+	\begin{center}
+		\input{\plotroot/estimation/adaptive/as/table_1_mh3.tex}
+	\end{center}
+	%\hspace*{-1cm}
+	{\footnotesize {\em Notes:} Results are based on $N_{run} = 400$ runs of the SMC algorithm. We report averages across runs for the runtime, schedule length, and number of resampling steps.}\setlength{\baselineskip}{4mm}
+\end{table}
+
+\begin{table}[H]
+	\caption{AS Model: 5 MH Steps Per Mutation}
+	\label{appsubsec:as.smcsummary}
+	\begin{center}
+		\input{\plotroot/estimation/adaptive/as/table_1_mh5.tex}
+	\end{center}
+	%\hspace*{-1cm}
+	{\footnotesize {\em Notes:} Results are based on $N_{run} = 400$ runs of the SMC algorithm. We report averages across runs for the runtime, schedule length, and number of resampling steps.}\setlength{\baselineskip}{4mm}
+\end{table}
+
+\clearpage
+
+\begin{table}[H]
+	\caption{SW Model: 3 MH Steps Per Mutation}
+	\label{appsubsec:sw.smcsummary}
+	\begin{center}
+		\input{\plotroot/estimation/adaptive/sw/table_1_sw_mh3.tex}
+	\end{center}
+	%\hspace*{-1cm}
+	{\footnotesize {\em Notes:} Results are based on $N_{run} = 200$ runs of the SMC algorithm. We report averages across runs for the runtime, schedule length, and number of resampling steps.}\setlength{\baselineskip}{4mm}
+\end{table}
+
+
+
+\begin{table}[H]
+	\caption{SW Model: 5 MH Steps Per Mutation}
+	\label{appsubsec:sw.smcsummary}
+	\begin{center}
+		\input{\plotroot/estimation/adaptive/sw/table_1_sw_mh5.tex}
+	\end{center}
+	%\hspace*{-1cm}
+	{\footnotesize {\em Notes:} Results are based on $N_{run} = 200$ runs of the SMC algorithm. We report averages across runs for the runtime, schedule length, and number of resampling steps.}\setlength{\baselineskip}{4mm}
+\end{table}
+
+\clearpage
+
+\subsection{Log Predictive Scores Over Time}
+\label{appsubsec:predictive_densities_over_time}
+% Whole Sample
+
+\begin{figure}[h!]
+  \caption{GDP Log Predictive Scores Over Time for SW vs SWFF}
+  \vspace*{-0.75cm}
+  \begin{center}
+    \begin{tabular}{cc}
+      Horizon = 2 & Horizon = 4 \\[-.5ex]	
+      \includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_gdp/SWvm904/grouped_mean_pred_dens_both_hor=2_T0=1991-12-31_T=2016-12-31.pdf} &
+      \includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_gdp/SWvm904/grouped_mean_pred_dens_both_hor=4_T0=1991-12-31_T=2016-12-31.pdf} \\[-.5ex]
+      Horizon = 6 & Horizon = 8 \\[-.5ex]	
+\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_gdp/SWvm904/grouped_mean_pred_dens_both_hor=6_T0=1991-12-31_T=2016-12-31.pdf} &
+      \includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_gdp/SWvm904/grouped_mean_pred_dens_both_hor=8_T0=1991-12-31_T=2016-12-31.pdf} 
+      \end{tabular}
+  \end{center}
+  \begin{minipage}{\textwidth}
+    \vspace{-.5cm}
+    \scriptsize
+    \setlength{\baselineskip}{2mm}
+    \emph{Note}: The four panels show the predictive density comparisons across time for the SW (blue line) and SWFF (red line) DSGE models averaged over 2, 4, 6, and 8 quarter horizons for output growth. Forecast origins from January 1992 to January 2017 only are included in these calculations. The x-axis shows the quarter in which the forecasts were generated (time $T+1$ in the parlance of section \ref{subsec:realtimedata}).
+  \end{minipage}
+\end{figure}
+
+%\pagebreak
+\begin{figure}[h!]
+	\caption{GDP Deflator Log Predictive Scores Over Time for SW vs SWFF}
+	\vspace*{-0.75cm}
+	\begin{center}
+		\begin{tabular}{cc}
+			Horizon = 2 & Horizon = 4 \\[-.5ex]	
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_def/SWvm904/grouped_mean_pred_dens_both_hor=2_T0=1991-12-31_T=2016-12-31.pdf} &
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_def/SWvm904/grouped_mean_pred_dens_both_hor=4_T0=1991-12-31_T=2016-12-31.pdf} \\[-.5ex]
+			Horizon = 6 & Horizon = 8 \\[-.5ex]	
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_def/SWvm904/grouped_mean_pred_dens_both_hor=6_T0=1991-12-31_T=2016-12-31.pdf} &
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_def/SWvm904/grouped_mean_pred_dens_both_hor=8_T0=1991-12-31_T=2016-12-31.pdf} 
+      \end{tabular}
+  \end{center}
+  \begin{minipage}{\textwidth}
+    \vspace{-.5cm}
+    \scriptsize
+    \setlength{\baselineskip}{2mm}
+    \emph{Note}: The four panels show the predictive density comparisons across time for the SW (blue line) and SWFF (red line) DSGE models averaged over 2, 4, 6, and 8 quarter horizons for inflation. Forecast origins from January 1992 to January 2017 only are included in these calculations. The x-axis shows the quarter in which the forecasts were generated (time $T+1$ in the parlance of section \ref{subsec:realtimedata}).
+  \end{minipage}
+\end{figure}
+
+%\pagebreak
+\begin{figure}[h!]
+	\caption{GDP Deflator Log Predictive Scores Over Time for SW vs SWFF}
+	\vspace*{-0.75cm}
+	\begin{center}
+		\begin{tabular}{cc}
+			Horizon = 2 & Horizon = 4 \\[-.5ex]	
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_both/SWvm904/grouped_mean_pred_dens_both_hor=2_T0=1991-12-31_T=2016-12-31.pdf} &
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_both/SWvm904/grouped_mean_pred_dens_both_hor=4_T0=1991-12-31_T=2016-12-31.pdf} \\[-.5ex]
+			Horizon = 6 & Horizon = 8 \\[-.5ex]	
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_both/SWvm904/grouped_mean_pred_dens_both_hor=6_T0=1991-12-31_T=2016-12-31.pdf} &
+			\includegraphics[width=.48\textwidth,angle=0,clip, trim=.1cm .1cm .1cm .1cm]{\plotroot/forecasting/predictive_densities/standard_prior/pred_densities_def/SWvm904/grouped_mean_pred_dens_both_hor=8_T0=1991-12-31_T=2016-12-31.pdf} 
+      \end{tabular}
+  \end{center}
+  \begin{minipage}{\textwidth}
+    \vspace{-.5cm}
+    \scriptsize
+    \setlength{\baselineskip}{2mm}
+    \emph{Note}: The four panels show the predictive density comparisons across time for the SW (blue line) and SWFF (red line) DSGE models averaged over 2, 4, 6, and 8 quarter horizons for output growth and inflation. Forecast origins from January 1992 to January 2017 only are included in these calculations. The x-axis shows the quarter in which the forecasts were generated (time $T+1$ in the parlance of section \ref{subsec:realtimedata}).
+  \end{minipage}
+\end{figure}
+
+
 \end{document}
