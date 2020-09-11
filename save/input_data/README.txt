@@ -1,7 +1,6 @@
-as_data.jld2 is the AnSchorfheide dataset that goes from 1960-Q1 through 2017-Q3. sw_orig_smc.h5 is the SmetsWoutersOrig dataset that goes from 1965-Q4 through 2014-Q4 (where 1965-Q4 through 1966-Q3 is treated as the pre-sample). One can download all of these series from FRED.
+The data is described in the appendix of the paper. For a description of the series' used, their origin, transformations, etc., please see the paper. For the simulation and forecasting exercises, we briefly discuss an overview of the series used and how they enter into the "online" approach in sections 4 and 5, respectively. The series and their transformations used for each model are described in more detail in Appendix B (specifically, appendix B.1.2, B.2.2, B.3.1, and B.4.1.1, B.5). For the pseudo-realtime forecast evaluation exercises, section 5 contains a brief overview of the approach which is described in more detail in Cai et al. (2019) (https://www.sciencedirect.com/science/article/abs/pii/S0169207018302012)
 
+as_data.jld2 is the dataset used for the AS simulation exercises (using the series and transformations described in the paper section B.1.2 which can be downloaded from FREd)
+sw_data.jld2 is the dataset used for the SW simulation exercises (using the series and transformations described in the paper section B.2.2 which can be downloaded from FRED)
 
-
-
-
-
+The various files in input_data/data/ are datasources for the vintages used in the pseudo-realtime forecasting exercises. They are the same series constructed in the same way as in Cai et al. (2019) (https://www.sciencedirect.com/science/article/abs/pii/S0169207018302012). For a more thorough discussion, please see that paper. The string of numbers at the end of each file is the vintage of the series and the "spec=" argument in each filename is the model the dataset is used for.
