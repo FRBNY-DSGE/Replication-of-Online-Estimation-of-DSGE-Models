@@ -27,6 +27,10 @@ function default_est_settings!(model::Symbol, est_settings::Dict{Symbol, Setting
         #est_settings[:date_forecast_start] = Setting(:date_forecast_start, quartertodate("2005-Q1"))
         #est_settings[:date_conditional_end] = Setting(:date_conditional_end, quartertodate("2005-Q1"))
     elseif model == :SmetsWouters
+    	est_settings[:sampling_method]    = Setting(:sampling_method, :MH)
+	est_settings[:n_mh_simulations]   = Setting(:n_mh_simulations, 100)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.5)
         est_settings[:n_particles] = Setting(:n_particles, 12_000)
         est_settings[:n_Φ] = Setting(:n_Φ, 500)
         est_settings[:λ] = Setting(:λ, 2.1)
