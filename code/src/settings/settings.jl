@@ -25,7 +25,7 @@ function initialize_default_settings(model::Symbol, year::Int, quarter::Int, est
     general_settings = Dict{Symbol, Setting}(:settings_spec => Setting(:settings_spec, :general))
 
     # General settings
-    general_settings[:sampling_method]      = Setting(:sampling_method, :SMC)
+    general_settings[:sampling_method]      = Setting(:sampling_method, :MH)
     general_settings[:use_parallel_workers] = Setting(:use_parallel_workers, true)
     general_settings[:resampler_smc]        = Setting(:resampler_smc, :systematic)
 
