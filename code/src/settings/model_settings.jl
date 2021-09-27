@@ -299,19 +299,19 @@ function update_SmetsWouters_settings(est_spec::Int, fcast_spec::Int, plot_spec:
     elseif est_spec == 2
         default_est_settings!(:SmetsWouters, est_settings)
 	est_settings[:mh_target_accept] = Setting(:mh_target_accept, 0.25)
-	est_settings[:mh_adaptive_accept = Setting(:mh_adaptive_accept, true)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
     elseif est_spec == 3
         default_est_settings!(:SmetsWouters, est_settings)
 	est_settings[:mh_target_accept] = Setting(:mh_target_accept, 0.5)
-	est_settings[:mh_adaptive_accept = Setting(:mh_adaptive_accept, true)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
     elseif est_spec == 4
         default_est_settings!(:SmetsWouters, est_settings)
 	est_settings[:mh_target_accept] = Setting(:mh_target_accept, 0.75)
-	est_settings[:mh_adaptive_accept = Setting(:mh_adaptive_accept, true)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
     elseif est_spec == 5
         default_est_settings!(:SmetsWouters, est_settings)
-	est_settings[:mh_target_accept] = Setting(:mh_target_accept, 0.9)
-	est_settings[:mh_adaptive_accept = Setting(:mh_adaptive_accept, true)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.9)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
     # elseif est_spec == 1 # Fixed, n_mh = 1
     #     default_est_settings!(:SmetsWouters, est_settings)
     # elseif est_spec == 15 # Fixed, n_mh = 3

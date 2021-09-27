@@ -3,11 +3,11 @@
 #SBATCH --partition=short
 
 #est_specs--remove est_spec=5 because it has 6 parameter blocks (used for diffuse prior forecasting)
-for e in {1,2,3,4,6,7,8,9,10,11,12,13,14,15,16}
+for e in {1,2}
 do
     mkdir est_spec_$e
     cd est_spec_$e
-    for i in {1..200}
+    for i in {1..2}
     do
         mkdir $i
         cd $i
