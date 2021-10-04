@@ -7,8 +7,9 @@ numnodes = ceil(Int, numprocs/16)
 addprocs(collect(eachline("nodefile")); tunnel=true, topology=:master_worker)
 @everywhere using DSGE
 
-@everywhere SMC_DIR = "/home/axg210096/Replication-of-Online-Estimation-of-DSGE-Models" ### Insert path to wherever you git clonded repo here
-@everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
+#@everywhere SMC_DIR = "/home/axg210096/Replication-of-Online-Estimation-of-DSGE-Models" ### Insert path to wherever you git clonded repo here
+@everywhere SMC_DIR = "/home/axg210096/scratch/Replication" ### Insert path to wherever you git clonded repo here
+@everywhere SMC_CODE_DIR = "/home/axg210096/scratch/Replication/code/src/"
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")
 
 @everywhere using Distributions, DataFrames
@@ -40,6 +41,7 @@ df_T_star = subset_df(df, T_star, forecast_date = true)
 if run_estimations
     #i is the iteration number--it's the third argument
     i = parse(Int, ARGS[3])
+    j = parse(Int, ARGS[2])
     # setting_overrides keeps getting carried over across estimation..
     # may need to put this inside the loop.. but that doesn't seem like a great solution.
     setting_overrides = Dict{Symbol, Setting}(:use_chand_recursion =>
@@ -51,20 +53,21 @@ if run_estimations
 
     println("Beginning iteration $i whole")
     # Estimating whole
-    estimate_model(model, T_star, run_date, subspec = "ss0", est_spec = est_spec, data_spec = data_spec,
+    time, mdd = estimate_model(model, T_star, run_date, subspec = "ss0", est_spec = est_spec, data_spec = data_spec,
                        data_override = df_T_star, setting_overrides = setting_overrides, iteration = i)
+    h5write("$(SMC_DIR)/save/mdd/mdd_estspec=$(j)_iter=$(i).h5", "results", [mdd, time])
 
-        println("Beginning iteration $i old")
-        # Estimating old
-        estimate_model(model, T, run_date, subspec = "ss0",  est_spec = est_spec, data_spec = data_spec,
-                       data_override = df_T, setting_overrides = setting_overrides, iteration = i)
+        # println("Beginning iteration $i old")
+        # # Estimating old
+        # estimate_model(model, T, run_date, subspec = "ss0",  est_spec = est_spec, data_spec = data_spec,
+        #                data_override = df_T, setting_overrides = setting_overrides, iteration = i)
 
-        println("Beginning iteration $i new")
-        # Estimating new
-        estimate_model(model, T, T_star, run_date, subspec = "ss0", est_spec = est_spec, data_spec = data_spec,
-                       data_override_T = df_T, data_override_T_star = df_T_star,
-                       setting_overrides = setting_overrides, iteration = i)
-    end
+        # println("Beginning iteration $i new")
+        # # Estimating new
+        # estimate_model(model, T, T_star, run_date, subspec = "ss0", est_spec = est_spec, data_spec = data_spec,
+        #                data_override_T = df_T, data_override_T_star = df_T_star,
+        #                setting_overrides = setting_overrides, iteration = i)
+        # end
 
     #  rmprocs(procs())
 end
