@@ -7,9 +7,13 @@ numnodes = ceil(Int, numprocs/16)
 addprocs(collect(eachline("nodefile")); tunnel=true, topology=:master_worker)
 @everywhere using DSGE
 
-#@everywhere SMC_DIR = "/home/axg210096/Replication-of-Online-Estimation-of-DSGE-Models" ### Insert path to wherever you git clonded repo here
-@everywhere SMC_DIR = "/home/axg210096/scratch/Replication" ### Insert path to wherever you git clonded repo here
-@everywhere SMC_CODE_DIR = "/home/axg210096/scratch/Replication/code/src/"
+
+
+
+
+
+@everywhere SMC_CODE_DIR = "$(SMC_DIR)/code/src/"
+
 @everywhere include("$(SMC_CODE_DIR)/SMCProject.jl")
 
 @everywhere using Distributions, DataFrames
