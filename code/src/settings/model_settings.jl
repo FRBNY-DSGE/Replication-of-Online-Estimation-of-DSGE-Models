@@ -312,22 +312,47 @@ function update_SmetsWouters_settings(est_spec::Int, fcast_spec::Int, plot_spec:
         default_est_settings!(:SmetsWouters, est_settings)
 	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.9)
 	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
-    # elseif est_spec == 1 # Fixed, n_mh = 1
-    #     default_est_settings!(:SmetsWouters, est_settings)
-    # elseif est_spec == 15 # Fixed, n_mh = 3
-    #     default_est_settings!(:SmetsWouters, est_settings)
-    #     est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 3)
-    # elseif est_spec == 16 # Fixed, n_mh = 5
-    #     default_est_settings!(:SmetsWouters, est_settings)
-    #     est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 5)
-    # elseif est_spec == 2 # \alpha = 0.98, n_mh = 1
-    #     default_est_settings!(:SmetsWouters, est_settings)
-    #     est_settings[:adaptive_tempering_target_smc] = Setting(:adaptive_tempering_target_smc, 0.98)
-    #     est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 1)
-    # elseif est_spec == 3 # \alpha = 0.98, n_mh = 3
-    #     default_est_settings!(:SmetsWouters, est_settings)
-    #     est_settings[:adaptive_tempering_target_smc] = Setting(:adaptive_tempering_target_smc, 0.98)
-    #     est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 3)
+    elseif est_spec == 6
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.25)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)
+    elseif est_spec == 7
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.5)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)
+    elseif est_spec == 8
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.75)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)
+    elseif est_spec == 9
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:mh_target_accept]   = Setting(:mh_target_accept, 0.9)
+	est_settings[:mh_adaptive_accept] = Setting(:mh_adaptive_accept, true)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)
+    elseif est_spec == 10
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)
+    elseif est_spec == 11
+        default_est_settings!(:SmetsWouters, est_settings)
+	est_settings[:n_mh_param_blocks]  = Setting(:n_mh_param_blocks, 4)	
+	est_settings[:n_mh_simulations] = Setting(:n_mh_simulations, 25)
+    elseif est_spec == 15 # Fixed, n_mh = 3
+        default_est_settings!(:SmetsWouters, est_settings)
+        est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 3)
+    elseif est_spec == 16 # Fixed, n_mh = 5
+        default_est_settings!(:SmetsWouters, est_settings)
+        est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 5)
+    elseif est_spec == 2 # \alpha = 0.98, n_mh = 1
+        default_est_settings!(:SmetsWouters, est_settings)
+        est_settings[:adaptive_tempering_target_smc] = Setting(:adaptive_tempering_target_smc, 0.98)
+        est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 1)
+    elseif est_spec == 3 # \alpha = 0.98, n_mh = 3
+        default_est_settings!(:SmetsWouters, est_settings)
+        est_settings[:adaptive_tempering_target_smc] = Setting(:adaptive_tempering_target_smc, 0.98)
+        est_settings[:n_mh_steps_smc] = Setting(:n_mh_steps_smc, 3)
     # elseif est_spec == 4 # \alpha = 0.98, n_mh = 5
     #     default_est_settings!(:SmetsWouters, est_settings)
     #     est_settings[:adaptive_tempering_target_smc] = Setting(:adaptive_tempering_target_smc, 0.98)

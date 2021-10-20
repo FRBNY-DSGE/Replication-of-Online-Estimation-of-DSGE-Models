@@ -58,9 +58,12 @@ function estimate_model(model::Symbol, year::Int, quarter::Int, estimation_date:
     #          verbose = verbose)
     
     data = DSGE.df_to_matrix(m, df)
-    DSGE.estimate(m, data; save_intermediate = save_intermediate, 
+    time = @elapsed DSGE.estimate(m, data; save_intermediate = save_intermediate, 
     		  intermediate_stage_increment = intermediate_stage_increment,
-		  verbose = verbose)
+    		  verbose = verbose)
+
+    return time, marginal_data_density(m, data; estimation_method = :mh, 
+    					  calculation_method = :harmonic_mean)
 end
 
 function estimate_model(model::Symbol, T::Date, estimation_date::String; kwargs...)
